@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@alexmorgan - Linktree</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="page-wrapper">
+        <!-- Theme Toggle Button (Fixed) -->
+        <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle theme">
+            <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </button>
+
+        <!-- Share Button (Fixed) -->
+        <button class="share-btn-fixed" id="profileShareBtn" aria-label="Share profile">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                <polyline points="16 6 12 2 8 6"></polyline>
+                <line x1="12" y1="2" x2="12" y2="15"></line>
+            </svg>
+        </button>
+
+        <div class="profile-container">
+            <!-- Decorative Header (Scrollable) -->
+            <div class="header-decoration">
+                <div class="confetti confetti-1"></div>
+                <div class="confetti confetti-2"></div>
+                <div class="confetti confetti-3"></div>
+                <div class="confetti confetti-4"></div>
+                <div class="confetti confetti-5"></div>
+                <div class="confetti confetti-6"></div>
+            </div>
+
+            <!-- Profile Header (Scrollable) -->
+            <div class="profile-header">
+                <div class="profile-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=400&h=400&fit=crop" alt="Profile" class="profile-image">
+                </div>
+                <h1 class="profile-name">Alex Morgan</h1>
+                <p class="profile-bio">Creative Developer & Designer ✨</p>
+                
+                <!-- Social Icons -->
+                <div class="social-icons">
+                    <a href="#" class="social-icon" aria-label="Instagram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Facebook">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="X">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Link Cards Section - Scalable Card List -->
+            <div class="link-card-list">
+                <!-- Card 1 -->
+                <div class="link-card-wrapper">
+                    <a href="https://example.com/portfolio" class="link-card" data-link-url="https://example.com/portfolio" data-link-title="My Portfolio & Projects" data-link-description="Explore my complete portfolio with case studies, design work, and creative projects">
+                        <div class="link-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=100&h=100&fit=crop" alt="Portfolio">
+                        </div>
+                        <span class="link-title">My Portfolio & Projects</span>
+                    </a>
+                    <button class="menu-btn" aria-label="Share link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="12" cy="5" r="2"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                            <circle cx="12" cy="19" r="2"></circle>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="link-card-wrapper">
+                    <a href="https://example.com/shop" class="link-card" data-link-url="https://example.com/shop" data-link-title="Shop My Designs" data-link-description="Check out my latest products, merch, and digital downloads">
+                        <div class="link-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=100&h=100&fit=crop" alt="Shop">
+                        </div>
+                        <span class="link-title">Shop My Designs</span>
+                    </a>
+                    <button class="menu-btn" aria-label="Share link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="12" cy="5" r="2"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                            <circle cx="12" cy="19" r="2"></circle>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="link-card-wrapper">
+                    <a href="https://youtube.com/@example" class="link-card" data-link-url="https://youtube.com/@example" data-link-title="YouTube Channel" data-link-description="Subscribe for weekly tutorials, tips, and behind-the-scenes content">
+                        <div class="link-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=100&h=100&fit=crop" alt="YouTube">
+                        </div>
+                        <span class="link-title">YouTube Channel</span>
+                    </a>
+                    <button class="menu-btn" aria-label="Share link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="12" cy="5" r="2"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                            <circle cx="12" cy="19" r="2"></circle>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Card 4 - Long Title Example -->
+                <div class="link-card-wrapper">
+                    <a href="https://example.com/infosys" class="link-card" data-link-url="https://example.com/infosys" data-link-title="Infosys test & Interview preparation - Notes Cloud AI Free Certifications 700+ VACANCIES" data-link-description="Complete preparation guide for Infosys interviews with free resources">
+                        <div class="link-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=100&h=100&fit=crop" alt="Infosys">
+                        </div>
+                        <span class="link-title">Infosys test & Interview preparation - Notes Cloud AI Free Certifications 700+ VACANCIES</span>
+                    </a>
+                    <button class="menu-btn" aria-label="Share link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="12" cy="5" r="2"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                            <circle cx="12" cy="19" r="2"></circle>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Card 5 - PDF Document -->
+                <div class="link-card-wrapper">
+                    <a href="https://example.com/resume.pdf" class="link-card" data-link-url="https://example.com/resume.pdf" data-link-title="Download My Resume (PDF)" data-link-description="Get my latest resume with all experience and skills">
+                        <div class="link-thumbnail pdf-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"></path>
+                                <path d="M14 2v6h6"></path>
+                            </svg>
+                        </div>
+                        <span class="link-title">Download My Resume (PDF)</span>
+                    </a>
+                    <button class="menu-btn" aria-label="Share link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="12" cy="5" r="2"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                            <circle cx="12" cy="19" r="2"></circle>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="link-card-wrapper">
+                    <a href="https://example.com/newsletter" class="link-card" data-link-url="https://example.com/newsletter" data-link-title="Join My Newsletter" data-link-description="Get exclusive tips, resources, and updates delivered to your inbox">
+                        <div class="link-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1557200134-90327ee9fafa?w=100&h=100&fit=crop" alt="Newsletter">
+                        </div>
+                        <span class="link-title">Join My Newsletter</span>
+                    </a>
+                    <button class="menu-btn" aria-label="Share link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="12" cy="5" r="2"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                            <circle cx="12" cy="19" r="2"></circle>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Card 7 - TCS Example -->
+                <div class="link-card-wrapper">
+                    <a href="https://example.com/tcs-codevita" class="link-card" data-link-url="https://example.com/tcs-codevita" data-link-title="TCS CodeVita Previous Year Questions" data-link-description="Access all previous year questions and solutions for TCS CodeVita">
+                        <div class="link-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=100&h=100&fit=crop" alt="TCS">
+                        </div>
+                        <span class="link-title">TCS CodeVita Previous Year Questions</span>
+                    </a>
+                    <button class="menu-btn" aria-label="Share link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="12" cy="5" r="2"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                            <circle cx="12" cy="19" r="2"></circle>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="link-card-wrapper">
+                    <a href="https://buymeacoffee.com/example" class="link-card" data-link-url="https://buymeacoffee.com/example" data-link-title="Buy Me a Coffee ☕" data-link-description="Support my work and help me create more content">
+                        <div class="link-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=100&h=100&fit=crop" alt="Coffee">
+                        </div>
+                        <span class="link-title">Buy Me a Coffee ☕</span>
+                    </a>
+                    <button class="menu-btn" aria-label="Share link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="12" cy="5" r="2"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                            <circle cx="12" cy="19" r="2"></circle>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Card 9 - Document Example -->
+                <div class="link-card-wrapper">
+                    <a href="https://example.com/guide.pdf" class="link-card" data-link-url="https://example.com/guide.pdf" data-link-title="DIRECT INTERVIEW IN ZOOM - Complete Guide" data-link-description="Step by step guide for direct Zoom interviews">
+                        <div class="link-thumbnail doc-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"></path>
+                                <path d="M14 2v6h6"></path>
+                                <path d="M9 13h6M9 17h6"></path>
+                            </svg>
+                        </div>
+                        <span class="link-title">DIRECT INTERVIEW IN ZOOM - Complete Guide</span>
+                    </a>
+                    <button class="menu-btn" aria-label="Share link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="12" cy="5" r="2"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                            <circle cx="12" cy="19" r="2"></circle>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Card 10 -->
+                <div class="link-card-wrapper">
+                    <a href="https://example.com/blog" class="link-card" data-link-url="https://example.com/blog" data-link-title="Read My Blog" data-link-description="Articles about design, development, and creativity">
+                        <div class="link-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=100&h=100&fit=crop" alt="Blog">
+                        </div>
+                        <span class="link-title">Read My Blog</span>
+                    </a>
+                    <button class="menu-btn" aria-label="Share link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="12" cy="5" r="2"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                            <circle cx="12" cy="19" r="2"></circle>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- ============================================
+                     ADDITIONAL CARDS (Commented Out - Uncomment to Use)
+                     ============================================ -->
+
+                <!-- Card 11 - GitHub Repositories -->
+                <!--
+                <div class="link-card-wrapper">
+                    <a href="https://github.com/yourusername" class="link-card" data-link-url="https://github.com/yourusername" data-link-title="GitHub Repositories" data-link-description="Explore my open source projects and code contributions">
+                        <div class="link-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=100&h=100&fit=crop" alt="GitHub">
+                        </div>
+                        <span class="link-title">GitHub Repositories</span>
+                    </a>
+                    <button class="menu-btn" aria-label="Share link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="12" cy="5" r="2"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                            <circle cx="12" cy="19" r="2"></circle>
+                        </svg>
+                    </button>
+                </div>
+                -->
+
+                <!-- Card 12 - Frontend Development Projects -->
+                <!--
+                <div class="link-card-wrapper">
+                    <a href="https://example.com/frontend-projects" class="link-card" data-link-url="https://example.com/frontend-projects" data-link-title="Frontend Development Projects" data-link-description="Collection of React, Vue, and vanilla JavaScript projects">
+                        <div class="link-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1593720213428-28a5b9e94613?w=100&h=100&fit=crop" alt="Frontend">
+                        </div>
+                        <span class="link-title">Frontend Development Projects</span>
+                    </a>
+                    <button class="menu-btn" aria-label="Share link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="12" cy="5" r="2"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                            <circle cx="12" cy="19" r="2"></circle>
+                        </svg>
+                    </button>
+                </div>
+                -->
+
+                <!-- Card 13 - UI Design Resources -->
+                <!--
+                <div class="link-card-wrapper">
+                    <a href="https://example.com/ui-resources" class="link-card" data-link-url="https://example.com/ui-resources" data-link-title="UI Design Resources" data-link-description="Free design systems, components, and Figma templates">
+                        <div class="link-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=100&h=100&fit=crop" alt="UI Design">
+                        </div>
+                        <span class="link-title">UI Design Resources</span>
+                    </a>
+                    <button class="menu-btn" aria-label="Share link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="12" cy="5" r="2"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                            <circle cx="12" cy="19" r="2"></circle>
+                        </svg>
+                    </button>
+                </div>
+                -->
+
+                <!-- Card 14 - JavaScript Learning Resources -->
+                <!--
+                <div class="link-card-wrapper">
+                    <a href="https://example.com/js-learning" class="link-card" data-link-url="https://example.com/js-learning" data-link-title="JavaScript Learning Resources" data-link-description="Tutorials, courses, and guides for mastering JavaScript">
+                        <div class="link-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?w=100&h=100&fit=crop" alt="JavaScript">
+                        </div>
+                        <span class="link-title">JavaScript Learning Resources</span>
+                    </a>
+                    <button class="menu-btn" aria-label="Share link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="12" cy="5" r="2"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                            <circle cx="12" cy="19" r="2"></circle>
+                        </svg>
+                    </button>
+                </div>
+                -->
+
+                <!-- Card 15 - AI Tools Collection -->
+                <!--
+                <div class="link-card-wrapper">
+                    <a href="https://example.com/ai-tools" class="link-card" data-link-url="https://example.com/ai-tools" data-link-title="AI Tools Collection" data-link-description="Curated list of AI tools for developers and designers">
+                        <div class="link-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=100&h=100&fit=crop" alt="AI Tools">
+                        </div>
+                        <span class="link-title">AI Tools Collection</span>
+                    </a>
+                    <button class="menu-btn" aria-label="Share link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="12" cy="5" r="2"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                            <circle cx="12" cy="19" r="2"></circle>
+                        </svg>
+                    </button>
+                </div>
+                -->
+
+                <!-- Card 16 - Developer Toolkit -->
+                <!--
+                <div class="link-card-wrapper">
+                    <a href="https://example.com/dev-toolkit" class="link-card" data-link-url="https://example.com/dev-toolkit" data-link-title="Developer Toolkit" data-link-description="Essential tools, extensions, and resources for developers">
+                        <div class="link-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=100&h=100&fit=crop" alt="Toolkit">
+                        </div>
+                        <span class="link-title">Developer Toolkit</span>
+                    </a>
+                    <button class="menu-btn" aria-label="Share link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="12" cy="5" r="2"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                            <circle cx="12" cy="19" r="2"></circle>
+                        </svg>
+                    </button>
+                </div>
+                -->
+
+                <!-- Card 17 - Startup Ideas -->
+                <!--
+                <div class="link-card-wrapper">
+                    <a href="https://example.com/startup-ideas" class="link-card" data-link-url="https://example.com/startup-ideas" data-link-title="Startup Ideas" data-link-description="Innovative startup concepts and business opportunities">
+                        <div class="link-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=100&h=100&fit=crop" alt="Startup">
+                        </div>
+                        <span class="link-title">Startup Ideas</span>
+                    </a>
+                    <button class="menu-btn" aria-label="Share link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="12" cy="5" r="2"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                            <circle cx="12" cy="19" r="2"></circle>
+                        </svg>
+                    </button>
+                </div>
+                -->
+
+                <!-- Card 18 - Tech Blog Articles -->
+                <!--
+                <div class="link-card-wrapper">
+                    <a href="https://example.com/tech-blog" class="link-card" data-link-url="https://example.com/tech-blog" data-link-title="Tech Blog Articles" data-link-description="In-depth articles on web development and technology trends">
+                        <div class="link-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=100&h=100&fit=crop" alt="Blog">
+                        </div>
+                        <span class="link-title">Tech Blog Articles</span>
+                    </a>
+                    <button class="menu-btn" aria-label="Share link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="12" cy="5" r="2"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                            <circle cx="12" cy="19" r="2"></circle>
+                        </svg>
+                    </button>
+                </div>
+                -->
+
+                <!-- Card 19 - Free Coding Resources -->
+                <!--
+                <div class="link-card-wrapper">
+                    <a href="https://example.com/free-resources" class="link-card" data-link-url="https://example.com/free-resources" data-link-title="Free Coding Resources" data-link-description="Free courses, tutorials, and learning materials for developers">
+                        <div class="link-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=100&h=100&fit=crop" alt="Resources">
+                        </div>
+                        <span class="link-title">Free Coding Resources</span>
+                    </a>
+                    <button class="menu-btn" aria-label="Share link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="12" cy="5" r="2"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                            <circle cx="12" cy="19" r="2"></circle>
+                        </svg>
+                    </button>
+                </div>
+                -->
+
+                <!-- Card 20 - Design Inspiration -->
+                <!--
+                <div class="link-card-wrapper">
+                    <a href="https://example.com/design-inspiration" class="link-card" data-link-url="https://example.com/design-inspiration" data-link-title="Design Inspiration" data-link-description="Curated collection of beautiful UI designs and creative work">
+                        <div class="link-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=100&h=100&fit=crop" alt="Design">
+                        </div>
+                        <span class="link-title">Design Inspiration</span>
+                    </a>
+                    <button class="menu-btn" aria-label="Share link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="12" cy="5" r="2"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                            <circle cx="12" cy="19" r="2"></circle>
+                        </svg>
+                    </button>
+                </div>
+                -->
+
+                <!-- Card 21 - My LinkedIn Profile -->
+                <!--
+                <div class="link-card-wrapper">
+                    <a href="https://linkedin.com/in/yourusername" class="link-card" data-link-url="https://linkedin.com/in/yourusername" data-link-title="My LinkedIn Profile" data-link-description="Connect with me on LinkedIn for professional networking">
+                        <div class="link-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1611944212129-29977ae1398c?w=100&h=100&fit=crop" alt="LinkedIn">
+                        </div>
+                        <span class="link-title">My LinkedIn Profile</span>
+                    </a>
+                    <button class="menu-btn" aria-label="Share link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="12" cy="5" r="2"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                            <circle cx="12" cy="19" r="2"></circle>
+                        </svg>
+                    </button>
+                </div>
+                -->
+
+                <!-- Card 22 - Book a Call -->
+                <!--
+                <div class="link-card-wrapper">
+                    <a href="https://cal.com/yourusername" class="link-card" data-link-url="https://cal.com/yourusername" data-link-title="Book a Call" data-link-description="Schedule a 30-minute consultation call with me">
+                        <div class="link-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=100&h=100&fit=crop" alt="Call">
+                        </div>
+                        <span class="link-title">Book a Call</span>
+                    </a>
+                    <button class="menu-btn" aria-label="Share link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="12" cy="5" r="2"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                            <circle cx="12" cy="19" r="2"></circle>
+                        </svg>
+                    </button>
+                </div>
+                -->
+
+                <!-- Card 23 - Contact Me -->
+                <!--
+                <div class="link-card-wrapper">
+                    <a href="mailto:hello@example.com" class="link-card" data-link-url="mailto:hello@example.com" data-link-title="Contact Me" data-link-description="Send me an email for inquiries and collaborations">
+                        <div class="link-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=100&h=100&fit=crop" alt="Contact">
+                        </div>
+                        <span class="link-title">Contact Me</span>
+                    </a>
+                    <button class="menu-btn" aria-label="Share link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="12" cy="5" r="2"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                            <circle cx="12" cy="19" r="2"></circle>
+                        </svg>
+                    </button>
+                </div>
+                -->
+
+                <!-- Card 24 - Web Development Course -->
+                <!--
+                <div class="link-card-wrapper">
+                    <a href="https://example.com/web-dev-course" class="link-card" data-link-url="https://example.com/web-dev-course" data-link-title="Web Development Course" data-link-description="Complete course on modern web development from scratch">
+                        <div class="link-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=100&h=100&fit=crop" alt="Course">
+                        </div>
+                        <span class="link-title">Web Development Course</span>
+                    </a>
+                    <button class="menu-btn" aria-label="Share link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="12" cy="5" r="2"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                            <circle cx="12" cy="19" r="2"></circle>
+                        </svg>
+                    </button>
+                </div>
+                -->
+
+                <!-- Card 25 - Design Portfolio -->
+                <!--
+                <div class="link-card-wrapper">
+                    <a href="https://example.com/design-portfolio" class="link-card" data-link-url="https://example.com/design-portfolio" data-link-title="Design Portfolio" data-link-description="Browse my complete design portfolio and case studies">
+                        <div class="link-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=100&h=100&fit=crop" alt="Portfolio">
+                        </div>
+                        <span class="link-title">Design Portfolio</span>
+                    </a>
+                    <button class="menu-btn" aria-label="Share link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="12" cy="5" r="2"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                            <circle cx="12" cy="19" r="2"></circle>
+                        </svg>
+                    </button>
+                </div>
+                -->
+            </div>
+
+            <!-- Custom Footer -->
+            <footer class="custom-footer">
+                <p class="footer-text">Built with ❤️ by Alex Morgan</p>
+                <div class="footer-links">
+                    <a href="#privacy" class="footer-link">Privacy</a>
+                    <a href="#report" class="footer-link">Report</a>
+                    <a href="#explore" class="footer-link">Explore</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Link Share Modal -->
+    <div class="modal-overlay" id="linkShareModal">
+        <div class="modal-content">
+            <button class="modal-close" id="linkModalClose" aria-label="Close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            
+            <h2 class="modal-title">Share link</h2>
+            
+            <!-- Link Preview Card -->
+            <div class="link-preview-card">
+                <div class="preview-thumbnail" id="linkPreviewThumb">
+                    <img src="" alt="Link preview">
+                </div>
+                <div class="preview-content">
+                    <h3 class="preview-title" id="linkPreviewTitle">Link Title</h3>
+                    <p class="preview-url" id="linkPreviewUrl">example.com/link</p>
+                    <p class="preview-description" id="linkPreviewDescription">Link description</p>
+                    <button class="preview-more-btn">More</button>
+                </div>
+            </div>
+            
+            <!-- Share Options -->
+            <div class="share-options">
+                <button class="share-option" data-action="copy-link">
+                    <div class="share-icon share-icon-copy">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                        </svg>
+                    </div>
+                    <span class="share-label">Copy link</span>
+                </button>
+                
+                <button class="share-option" data-action="twitter">
+                    <div class="share-icon share-icon-twitter">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                        </svg>
+                    </div>
+                    <span class="share-label">X</span>
+                </button>
+                
+                <button class="share-option" data-action="facebook">
+                    <div class="share-icon share-icon-facebook">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
+                        </svg>
+                    </div>
+                    <span class="share-label">Facebook</span>
+                </button>
+                
+                <button class="share-option" data-action="whatsapp">
+                    <div class="share-icon share-icon-whatsapp">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path>
+                        </svg>
+                    </div>
+                    <span class="share-label">WhatsApp</span>
+                </button>
+                
+                <button class="share-option" data-action="linkedin">
+                    <div class="share-icon share-icon-linkedin">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+                        </svg>
+                    </div>
+                    <span class="share-label">LinkedIn</span>
+                </button>
+                
+                <button class="share-option" data-action="messenger">
+                    <div class="share-icon share-icon-messenger">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C5.373 0 0 4.975 0 11.111c0 3.497 1.745 6.616 4.472 8.652V24l4.086-2.242c1.09.301 2.246.464 3.442.464 6.627 0 12-4.974 12-11.11C24 4.975 18.627 0 12 0zm1.191 14.963l-3.055-3.26-5.963 3.26L10.732 8l3.131 3.259L19.752 8l-6.561 6.963z"></path>
+                        </svg>
+                    </div>
+                    <span class="share-label">Messenger</span>
+                </button>
+                
+                <button class="share-option" data-action="snapchat">
+                    <div class="share-icon share-icon-snapchat">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12.206.793c.99 0 4.347.276 5.93 3.821.529 1.193.403 3.219.299 4.847l-.003.06c-.012.18-.022.345-.03.51.075.045.203.09.401.09.3-.016.659-.12 1.033-.301.165-.088.344-.104.464-.104.182 0 .359.029.509.09.45.149.734.479.734.838.015.449-.39.839-1.213 1.168-.089.029-.209.075-.344.119-.45.135-1.139.36-1.333.81-.09.224-.061.524.12.868l.015.015c.06.136 1.526 3.475 4.791 4.014.255.044.435.27.42.509 0 .075-.015.149-.045.225-.24.569-1.273.988-3.146 1.271-.059.091-.12.375-.164.57-.029.179-.074.36-.134.553-.076.271-.27.405-.555.405h-.03c-.135 0-.313-.031-.538-.074-.36-.075-.765-.135-1.273-.135-.3 0-.599.015-.913.074-.6.104-1.123.464-1.723.884-.853.599-1.826 1.288-3.294 1.288-.06 0-.119-.015-.18-.015h-.149c-1.468 0-2.427-.675-3.279-1.288-.599-.42-1.107-.779-1.707-.884-.314-.045-.629-.074-.928-.074-.54 0-.958.089-1.272.149-.211.043-.391.074-.54.074-.374 0-.523-.224-.583-.42-.061-.192-.09-.389-.135-.567-.046-.181-.105-.494-.166-.57-1.918-.222-2.95-.642-3.189-1.226-.031-.063-.052-.15-.055-.225-.015-.243.165-.465.42-.509 3.264-.54 4.73-3.879 4.791-4.02l.016-.029c.18-.345.224-.645.119-.869-.195-.434-.884-.658-1.332-.809-.121-.029-.24-.074-.346-.119-1.107-.435-1.257-.93-1.197-1.273.09-.479.674-.793 1.168-.793.146 0 .27.029.383.074.42.194.789.3 1.104.3.234 0 .384-.06.465-.105l-.046-.569c-.098-1.626-.225-3.651.307-4.837C7.392 1.077 10.739.807 11.727.807l.419-.015h.06z"></path>
+                        </svg>
+                    </div>
+                    <span class="share-label">Snapchat</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Share Modal -->
+    <div class="modal-overlay" id="profileShareModal">
+        <div class="modal-content modal-content-profile">
+            <button class="modal-close" id="profileModalClose" aria-label="Close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            
+            <h2 class="modal-title">Share Profile</h2>
+            
+            <!-- Profile Preview Card -->
+            <div class="profile-preview-card">
+                <div class="profile-preview-image">
+                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=400&h=400&fit=crop" alt="Profile">
+                </div>
+                <div class="profile-preview-content">
+                    <h3 class="profile-preview-name">Alex Morgan</h3>
+                    <p class="profile-preview-handle">@alexmorgan</p>
+                </div>
+            </div>
+            
+            <!-- Share Options -->
+            <div class="share-options">
+                <button class="share-option" data-action="copy-profile">
+                    <div class="share-icon share-icon-copy">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                        </svg>
+                    </div>
+                    <span class="share-label">Copy Link</span>
+                </button>
+                
+                <button class="share-option" data-action="twitter">
+                    <div class="share-icon share-icon-twitter">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                        </svg>
+                    </div>
+                    <span class="share-label">X</span>
+                </button>
+                
+                <button class="share-option" data-action="facebook">
+                    <div class="share-icon share-icon-facebook">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
+                        </svg>
+                    </div>
+                    <span class="share-label">Facebook</span>
+                </button>
+                
+                <button class="share-option" data-action="whatsapp">
+                    <div class="share-icon share-icon-whatsapp">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path>
+                        </svg>
+                    </div>
+                    <span class="share-label">WhatsApp</span>
+                </button>
+                
+                <button class="share-option" data-action="linkedin">
+                    <div class="share-icon share-icon-linkedin">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+                        </svg>
+                    </div>
+                    <span class="share-label">LinkedIn</span>
+                </button>
+                
+                <button class="share-option" data-action="messenger">
+                    <div class="share-icon share-icon-messenger">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C5.373 0 0 4.975 0 11.111c0 3.497 1.745 6.616 4.472 8.652V24l4.086-2.242c1.09.301 2.246.464 3.442.464 6.627 0 12-4.974 12-11.11C24 4.975 18.627 0 12 0zm1.191 14.963l-3.055-3.26-5.963 3.26L10.732 8l3.131 3.259L19.752 8l-6.561 6.963z"></path>
+                        </svg>
+                    </div>
+                    <span class="share-label">Messenger</span>
+                </button>
+                
+                <button class="share-option" data-action="snapchat">
+                    <div class="share-icon share-icon-snapchat">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12.206.793c.99 0 4.347.276 5.93 3.821.529 1.193.403 3.219.299 4.847l-.003.06c-.012.18-.022.345-.03.51.075.045.203.09.401.09.3-.016.659-.12 1.033-.301.165-.088.344-.104.464-.104.182 0 .359.029.509.09.45.149.734.479.734.838.015.449-.39.839-1.213 1.168-.089.029-.209.075-.344.119-.45.135-1.139.36-1.333.81-.09.224-.061.524.12.868l.015.015c.06.136 1.526 3.475 4.791 4.014.255.044.435.27.42.509 0 .075-.015.149-.045.225-.24.569-1.273.988-3.146 1.271-.059.091-.12.375-.164.57-.029.179-.074.36-.134.553-.076.271-.27.405-.555.405h-.03c-.135 0-.313-.031-.538-.074-.36-.075-.765-.135-1.273-.135-.3 0-.599.015-.913.074-.6.104-1.123.464-1.723.884-.853.599-1.826 1.288-3.294 1.288-.06 0-.119-.015-.18-.015h-.149c-1.468 0-2.427-.675-3.279-1.288-.599-.42-1.107-.779-1.707-.884-.314-.045-.629-.074-.928-.074-.54 0-.958.089-1.272.149-.211.043-.391.074-.54.074-.374 0-.523-.224-.583-.42-.061-.192-.09-.389-.135-.567-.046-.181-.105-.494-.166-.57-1.918-.222-2.95-.642-3.189-1.226-.031-.063-.052-.15-.055-.225-.015-.243.165-.465.42-.509 3.264-.54 4.73-3.879 4.791-4.02l.016-.029c.18-.345.224-.645.119-.869-.195-.434-.884-.658-1.332-.809-.121-.029-.24-.074-.346-.119-1.107-.435-1.257-.93-1.197-1.273.09-.479.674-.793 1.168-.793.146 0 .27.029.383.074.42.194.789.3 1.104.3.234 0 .384-.06.465-.105l-.046-.569c-.098-1.626-.225-3.651.307-4.837C7.392 1.077 10.739.807 11.727.807l.419-.015h.06z"></path>
+                        </svg>
+                    </div>
+                    <span class="share-label">Snapchat</span>
+                </button>
+            </div>
+            
+            <!-- Work With Me Section -->
+            <div class="work-section">
+                <h3 class="work-title">Work with Me</h3>
+                <p class="work-description">Need a website, UI design, or collaboration? Let's talk.</p>
+                <div class="work-buttons">
+                    <button class="work-btn work-btn-primary" id="bookCallBtn">Book a Call</button>
+                    <button class="work-btn work-btn-secondary" id="aboutMeBtn">About Me</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">Link copied!</div>
+
+    <!-- Book Call Interface -->
+    <div class="interface-page" id="bookCallInterface">
+        <div class="interface-bg-decoration interface-decoration-1"></div>
+        <div class="interface-bg-decoration interface-decoration-2"></div>
+        <div class="interface-bg-decoration interface-decoration-3"></div>
+        
+        <div class="interface-container">
+            <button class="interface-back-btn" id="bookCallBackBtn" aria-label="Go back">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+            </button>
+            
+            <div class="interface-header">
+                <h1 class="interface-title">Book a Call</h1>
+                <p class="interface-subtitle">Discuss website design, UI improvements, or collaboration ideas.</p>
+            </div>
+            
+            <div class="interface-content">
+                <div class="interface-card">
+                    <div class="interface-card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                    </div>
+                    <h3 class="interface-card-title">Schedule a Meeting</h3>
+                    <p class="interface-card-description">Pick a time and we'll discuss your project.</p>
+                    <a href="https://cal.com/yourusername" target="_blank" class="interface-card-btn">Book via Cal.com</a>
+                </div>
+                
+                <div class="interface-card">
+                    <div class="interface-card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="interface-card-title">Send a Message</h3>
+                    <p class="interface-card-description">Prefer email? Send your project details.</p>
+                    <a href="mailto:hello@alexmorgan.com?subject=Project Inquiry" class="interface-card-btn">Email Me</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Me Interface -->
+    <div class="interface-page" id="aboutMeInterface">
+        <div class="interface-bg-decoration interface-decoration-1"></div>
+        <div class="interface-bg-decoration interface-decoration-2"></div>
+        <div class="interface-bg-decoration interface-decoration-3"></div>
+        
+        <div class="interface-container">
+            <button class="interface-back-btn" id="aboutMeBackBtn" aria-label="Go back">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+            </button>
+            
+            <!-- Profile Header -->
+            <div class="about-header">
+                <div class="about-profile-image">
+                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=400&h=400&fit=crop" alt="Alex Morgan">
+                </div>
+                <h1 class="about-name">Alex Morgan</h1>
+                <p class="about-tagline">Frontend Developer & UI Designer</p>
+            </div>
+            
+            <!-- About Section -->
+            <div class="about-section">
+                <h2 class="about-section-title">About Me</h2>
+                <p class="about-text">Frontend developer passionate about building clean UI and mobile-first web applications. Interested in product design, startups, and developer tools.</p>
+            </div>
+            
+            <!-- Social Links Section -->
+            <div class="about-section">
+                <h2 class="about-section-title">Connect</h2>
+                <div class="social-links-grid">
+                    <a href="https://instagram.com/yourusername" target="_blank" class="social-link-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>
+                        </svg>
+                        <span>Instagram</span>
+                    </a>
+                    <a href="https://linkedin.com/in/yourusername" target="_blank" class="social-link-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+                        </svg>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/yourusername" target="_blank" class="social-link-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+                        </svg>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://discord.com/users/yourusername" target="_blank" class="social-link-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"></path>
+                        </svg>
+                        <span>Discord</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Technologies & Tools Section -->
+            <div class="about-section">
+                <h2 class="about-section-title">Technologies & Tools</h2>
+                
+                <!-- Frontend Technologies -->
+                <div class="tech-category">
+                    <h3 class="tech-category-title">💻 Frontend Technologies</h3>
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <div class="tech-icon">HTML</div>
+                            <span class="tech-name">HTML</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">CSS</div>
+                            <span class="tech-name">CSS</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">TW</div>
+                            <span class="tech-name">Tailwind</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">BS</div>
+                            <span class="tech-name">Bootstrap</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">JS</div>
+                            <span class="tech-name">JavaScript</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">⚛️</div>
+                            <span class="tech-name">React</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">▲</div>
+                            <span class="tech-name">Next.js</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Backend Technologies -->
+                <div class="tech-category">
+                    <h3 class="tech-category-title">⚙️ Backend Technologies</h3>
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <div class="tech-icon">Node</div>
+                            <span class="tech-name">Node.js</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">🐍</div>
+                            <span class="tech-name">Python</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">API</div>
+                            <span class="tech-name">REST APIs</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Databases -->
+                <div class="tech-category">
+                    <h3 class="tech-category-title">🗄️ Databases</h3>
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <div class="tech-icon">🍃</div>
+                            <span class="tech-name">MongoDB</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">SQL</div>
+                            <span class="tech-name">MySQL</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">🔥</div>
+                            <span class="tech-name">Firebase</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Design Tools -->
+                <div class="tech-category">
+                    <h3 class="tech-category-title">🎨 Design Tools</h3>
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <div class="tech-icon">Fig</div>
+                            <span class="tech-name">Figma</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">Fr</div>
+                            <span class="tech-name">Framer</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">XD</div>
+                            <span class="tech-name">Adobe XD</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Developer Tools -->
+                <div class="tech-category">
+                    <h3 class="tech-category-title">🛠️ Developer Tools</h3>
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <div class="tech-icon">VS</div>
+                            <span class="tech-name">VS Code</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">Git</div>
+                            <span class="tech-name">Git</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">GH</div>
+                            <span class="tech-name">GitHub</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">🐳</div>
+                            <span class="tech-name">Docker</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">🐧</div>
+                            <span class="tech-name">Linux</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
