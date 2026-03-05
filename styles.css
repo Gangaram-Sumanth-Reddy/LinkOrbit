@@ -1703,56 +1703,9 @@ a:focus-visible {
    FIXED BUTTONS - Theme Toggle & Share
    ============================================ */
 
-/* Fixed Theme Toggle Button */
-.theme-toggle-btn {
-    position: fixed;
-    top: 16px;
-    left: 16px;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border: none;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    transition: all 0.3s ease;
-    color: var(--text-primary);
-}
-
-.theme-toggle-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
-}
-
-.theme-toggle-btn:active {
-    transform: scale(0.95);
-}
-
-.sun-icon {
-    display: block;
-}
-
-.moon-icon {
-    display: none;
-}
-
-[data-theme="dark"] .sun-icon {
-    display: none;
-}
-
-[data-theme="dark"] .moon-icon {
-    display: block;
-}
-
-[data-theme="dark"] .theme-toggle-btn {
-    background: rgba(45, 55, 72, 0.95);
-    color: white;
-}
+/* ============================================
+   FIXED BUTTONS - Share
+   ============================================ */
 
 /* Fixed Share Button */
 .share-btn-fixed {
@@ -2002,7 +1955,6 @@ html {
 .social-link-btn:active,
 .link-card:active,
 .menu-btn:active,
-.theme-toggle-btn:active,
 .share-btn-fixed:active {
     transform: scale(0.96);
     transition-duration: 0.1s;
@@ -2050,7 +2002,6 @@ img {
 @media (hover: none) and (pointer: coarse) {
     /* Ensure minimum 48px touch targets */
     .menu-btn,
-    .theme-toggle-btn,
     .share-btn-fixed,
     .social-icon,
     .social-link-btn {
@@ -2162,7 +2113,6 @@ a:focus {
    ============================================ */
 
 @media print {
-    .theme-toggle-btn,
     .share-btn-fixed,
     .menu-btn,
     .modal-overlay,

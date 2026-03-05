@@ -1,32 +1,5 @@
 // ============================================
-// THEME TOGGLE
-// ============================================
-
-const themeToggleBtn = document.getElementById('themeToggleBtn');
-const htmlElement = document.documentElement;
-
-// Check for saved theme preference or default to 'light'
-const savedTheme = localStorage.getItem('theme') || 'light';
-htmlElement.setAttribute('data-theme', savedTheme);
-
-themeToggleBtn.addEventListener('click', () => {
-    const currentTheme = htmlElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    
-    htmlElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    
-    // Add rotation animation
-    themeToggleBtn.style.transform = 'rotate(360deg)';
-    setTimeout(() => {
-        themeToggleBtn.style.transform = 'rotate(0deg)';
-    }, 300);
-    
-    if (navigator.vibrate) {
-        navigator.vibrate(10);
-    }
-});
-
+// PROFILE SHARE MODAL
 // ============================================
 // MODAL ELEMENTS
 // ============================================
