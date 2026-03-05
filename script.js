@@ -51,8 +51,8 @@ let currentLinkData = {
 // Profile data
 const profileData = {
     url: window.location.href,
-    name: 'Alex Morgan',
-    handle: '@alexmorgan'
+    name: 'Gangaram Sumanth Reddy',
+    handle: '@codegai'
 };
 
 // Open Link Share Modal
@@ -765,3 +765,370 @@ console.log('📦 Current card count:', getCardCount());
 console.log('💡 Use addLinkCard() to add new cards dynamically');
 console.log('🔙 Browser back button navigation enabled');
 console.log('📱 Mobile-optimized with history API support');
+
+
+// ============================================
+// DOCUMENTATION PAGES - Privacy, Report, Explore
+// ============================================
+
+const privacyPage = document.getElementById('privacyPage');
+const reportPage = document.getElementById('reportPage');
+const explorePage = document.getElementById('explorePage');
+
+const privacyLink = document.getElementById('privacyLink');
+const reportLink = document.getElementById('reportLink');
+const exploreLink = document.getElementById('exploreLink');
+
+const privacyBackBtn = document.getElementById('privacyBackBtn');
+const reportBackBtn = document.getElementById('reportBackBtn');
+const exploreBackBtn = document.getElementById('exploreBackBtn');
+
+// Open Privacy Page
+privacyLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    openDocPage(privacyPage, 'privacy');
+    
+    if (navigator.vibrate) {
+        navigator.vibrate(10);
+    }
+});
+
+// Open Report Page
+reportLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    openDocPage(reportPage, 'report');
+    
+    if (navigator.vibrate) {
+        navigator.vibrate(10);
+    }
+});
+
+// Open Explore Page
+exploreLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    openDocPage(explorePage, 'explore');
+    
+    if (navigator.vibrate) {
+        navigator.vibrate(10);
+    }
+});
+
+// Back button handlers
+privacyBackBtn.addEventListener('click', () => {
+    handleDocPageBack();
+    
+    if (navigator.vibrate) {
+        navigator.vibrate(10);
+    }
+});
+
+reportBackBtn.addEventListener('click', () => {
+    handleDocPageBack();
+    
+    if (navigator.vibrate) {
+        navigator.vibrate(10);
+    }
+});
+
+exploreBackBtn.addEventListener('click', () => {
+    handleDocPageBack();
+    
+    if (navigator.vibrate) {
+        navigator.vibrate(10);
+    }
+});
+
+// Open doc page function
+function openDocPage(page, pageName) {
+    page.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    pushNavigation(pageName);
+}
+
+// Close doc page function
+function closeDocPage(page) {
+    page.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Handle doc page back navigation
+function handleDocPageBack() {
+    const previousPage = popNavigation();
+    
+    if (privacyPage.classList.contains('active')) {
+        closeDocPage(privacyPage);
+    }
+    if (reportPage.classList.contains('active')) {
+        closeDocPage(reportPage);
+    }
+    if (explorePage.classList.contains('active')) {
+        closeDocPage(explorePage);
+    }
+    
+    history.back();
+}
+
+// Update popstate handler to include doc pages
+const originalPopstateHandler = window.onpopstate;
+window.addEventListener('popstate', (event) => {
+    const state = event.state;
+    
+    // Close doc pages if open
+    if (privacyPage.classList.contains('active')) {
+        closeDocPage(privacyPage);
+    }
+    if (reportPage.classList.contains('active')) {
+        closeDocPage(reportPage);
+    }
+    if (explorePage.classList.contains('active')) {
+        closeDocPage(explorePage);
+    }
+    
+    // Handle other navigation states
+    if (!state || state.page === 'main') {
+        if (bookCallInterface.classList.contains('active')) {
+            closeInterface(bookCallInterface);
+        }
+        if (aboutMeInterface.classList.contains('active')) {
+            closeInterface(aboutMeInterface);
+        }
+        if (profileShareModal.classList.contains('active')) {
+            closeModal(profileShareModal);
+        }
+        navigationStack = ['main'];
+    } else if (state.page === 'share-profile') {
+        if (bookCallInterface.classList.contains('active')) {
+            closeInterface(bookCallInterface);
+        }
+        if (aboutMeInterface.classList.contains('active')) {
+            closeInterface(aboutMeInterface);
+        }
+        setTimeout(() => {
+            openModal(profileShareModal);
+        }, 300);
+    } else if (state.page === 'book-call') {
+        if (aboutMeInterface.classList.contains('active')) {
+            closeInterface(aboutMeInterface);
+        }
+        openInterface(bookCallInterface, 'book-call');
+    } else if (state.page === 'about-me') {
+        if (bookCallInterface.classList.contains('active')) {
+            closeInterface(bookCallInterface);
+        }
+        openInterface(aboutMeInterface, 'about-me');
+    } else if (state.page === 'privacy') {
+        openDocPage(privacyPage, 'privacy');
+    } else if (state.page === 'report') {
+        openDocPage(reportPage, 'report');
+    } else if (state.page === 'explore') {
+        openDocPage(explorePage, 'explore');
+    }
+});
+
+// Close doc pages on escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        if (privacyPage.classList.contains('active') || 
+            reportPage.classList.contains('active') || 
+            explorePage.classList.contains('active')) {
+            handleDocPageBack();
+        }
+    }
+});
+
+// ============================================
+// PRIVACY PAGE - SIDEBAR NAVIGATION
+// ============================================
+
+const privacyNavLinks = document.querySelectorAll('#privacyPage .doc-nav-link');
+
+privacyNavLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Remove active class from all links
+        privacyNavLinks.forEach(l => l.classList.remove('active'));
+        
+        // Add active class to clicked link
+        link.classList.add('active');
+        
+        // Scroll to section
+        const targetId = link.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        
+        if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        
+        if (navigator.vibrate) {
+            navigator.vibrate(10);
+        }
+    });
+});
+
+// Update active nav link on scroll
+let scrollTimeout;
+const privacyContent = document.querySelector('#privacyPage .doc-content');
+
+if (privacyContent) {
+    privacyContent.addEventListener('scroll', () => {
+        clearTimeout(scrollTimeout);
+        
+        scrollTimeout = setTimeout(() => {
+            const sections = document.querySelectorAll('#privacyPage .doc-section');
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (privacyContent.scrollTop >= sectionTop - 100) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            privacyNavLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        }, 100);
+    });
+}
+
+// ============================================
+// REPORT PAGE - FORM HANDLING
+// ============================================
+
+const showFormBtn = document.getElementById('showFormBtn');
+const reportFormContainer = document.getElementById('reportFormContainer');
+const reportForm = document.getElementById('reportForm');
+const formSuccessMessage = document.getElementById('formSuccessMessage');
+const formErrorMessage = document.getElementById('formErrorMessage');
+const submitBtn = document.getElementById('submitBtn');
+const retryBtn = document.getElementById('retryBtn');
+
+showFormBtn.addEventListener('click', () => {
+    reportFormContainer.style.display = 'block';
+    reportFormContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    
+    if (navigator.vibrate) {
+        navigator.vibrate(10);
+    }
+});
+
+reportForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    // Show loading state
+    const btnText = submitBtn.querySelector('.btn-text');
+    const btnLoader = submitBtn.querySelector('.btn-loader');
+    btnText.style.display = 'none';
+    btnLoader.style.display = 'flex';
+    submitBtn.disabled = true;
+    
+    try {
+        // Get form data
+        const formData = new FormData(reportForm);
+        
+        // Submit to Web3Forms
+        const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            // Success - hide form and show success message
+            reportForm.style.display = 'none';
+            formSuccessMessage.style.display = 'block';
+            formSuccessMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Reset form
+            reportForm.reset();
+            
+            if (navigator.vibrate) {
+                navigator.vibrate([10, 50, 10]);
+            }
+            
+            // Show toast
+            showToast('Issue report submitted successfully! ✓');
+            
+            console.log('✅ Form submitted successfully:', data);
+        } else {
+            // Error from Web3Forms
+            throw new Error(data.message || 'Submission failed');
+        }
+    } catch (error) {
+        // Show error message
+        console.error('❌ Form submission error:', error);
+        reportForm.style.display = 'none';
+        formErrorMessage.style.display = 'block';
+        formErrorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        
+        showToast('Failed to submit report. Please try again.');
+    } finally {
+        // Reset button state
+        btnText.style.display = 'inline';
+        btnLoader.style.display = 'none';
+        submitBtn.disabled = false;
+    }
+});
+
+// Retry button handler
+if (retryBtn) {
+    retryBtn.addEventListener('click', () => {
+        formErrorMessage.style.display = 'none';
+        reportForm.style.display = 'block';
+        reportForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        
+        if (navigator.vibrate) {
+            navigator.vibrate(10);
+        }
+    });
+}
+
+console.log('📄 Documentation pages initialized');
+console.log('🔒 Privacy Policy page ready');
+console.log('🐛 Report Issue page ready');
+console.log('🌟 Explore page ready');
+
+// ============================================
+// FOOTER BRAND LINK - REDIRECT TO ABOUT ME
+// ============================================
+
+const footerBrandLink = document.getElementById('footerBrandLink');
+
+if (footerBrandLink) {
+    footerBrandLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Close any open doc pages
+        if (privacyPage.classList.contains('active')) {
+            closeDocPage(privacyPage);
+        }
+        if (reportPage.classList.contains('active')) {
+            closeDocPage(reportPage);
+        }
+        if (explorePage.classList.contains('active')) {
+            closeDocPage(explorePage);
+        }
+        
+        // Close any open modals
+        if (profileShareModal.classList.contains('active')) {
+            closeModal(profileShareModal);
+        }
+        
+        // Open About Me interface
+        setTimeout(() => {
+            openInterface(aboutMeInterface, 'about-me');
+        }, 300);
+        
+        if (navigator.vibrate) {
+            navigator.vibrate(10);
+        }
+    });
+}
+
