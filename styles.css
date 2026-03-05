@@ -78,11 +78,41 @@ body {
     overflow: hidden;
 }
 
+/* Header Background Image Support */
+.header-decoration.has-image {
+    background: none;
+}
+
+.header-decoration-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+}
+
+/* Overlay for better profile image visibility */
+.header-decoration::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.3));
+    z-index: 1;
+    pointer-events: none;
+}
+
 /* Confetti Elements */
 .confetti {
     position: absolute;
     border-radius: 50%;
     animation: float 6s ease-in-out infinite;
+    z-index: 2;
 }
 
 .confetti-1 {
@@ -181,15 +211,15 @@ body {
 .profile-header {
     text-align: center;
     padding: 0 24px 32px;
-    margin-top: -60px;
+    margin-top: -80px;
     position: relative;
     z-index: 5;
 }
 
 .profile-image-wrapper {
-    width: 100px;
-    height: 100px;
-    margin: 0 auto 16px;
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 20px;
     position: relative;
 }
 
@@ -198,33 +228,34 @@ body {
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    border: 5px solid var(--container-bg);
-    box-shadow: var(--shadow-md);
+    border: 6px solid var(--container-bg);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 .profile-name {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: 800;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     color: var(--text-primary);
 }
 
 .profile-bio {
-    font-size: 15px;
+    font-size: 16px;
     color: var(--text-secondary);
-    margin-bottom: 20px;
+    margin-bottom: 24px;
+    line-height: 1.5;
 }
 
 /* Social Icons */
 .social-icons {
     display: flex;
-    gap: 12px;
+    gap: 14px;
     justify-content: center;
 }
 
 .social-icon {
-    width: 40px;
-    height: 40px;
+    width: 46px;
+    height: 46px;
     border-radius: 50%;
     background: #f3f4f6;
     display: flex;
@@ -233,6 +264,11 @@ body {
     color: var(--text-primary);
     text-decoration: none;
     transition: all 0.3s ease;
+}
+
+.social-icon svg {
+    width: 22px;
+    height: 22px;
 }
 
 .social-icon:hover {
@@ -308,9 +344,9 @@ body {
 
 /* Link Thumbnail - Scalable Image Container */
 .link-thumbnail {
-    width: 48px;
-    height: 48px;
-    border-radius: 11px;
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
     overflow: hidden;
     flex-shrink: 0;
     background: #f3f4f6;
@@ -329,21 +365,27 @@ body {
 .link-thumbnail.pdf-icon {
     background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
     color: white;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 700;
 }
 
 .link-thumbnail.doc-icon {
     background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
     color: white;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 700;
+}
+
+.link-thumbnail.pdf-icon svg,
+.link-thumbnail.doc-icon svg {
+    width: 28px;
+    height: 28px;
 }
 
 /* Link Title - Truncated Text */
 .link-title {
     flex: 1;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--text-primary);
     line-height: 1.4;
@@ -805,21 +847,50 @@ body {
         min-height: 100vh;
     }
 
+    .profile-header {
+        margin-top: -70px;
+    }
+
+    .profile-image-wrapper {
+        width: 120px;
+        height: 120px;
+    }
+
+    .profile-name {
+        font-size: 24px;
+    }
+
+    .profile-bio {
+        font-size: 15px;
+    }
+
+    .social-icon {
+        width: 42px;
+        height: 42px;
+    }
+
     .link-card-list {
         padding: 0 12px 32px;
     }
 
     .link-card {
-        padding: 14px;
+        padding: 16px;
+        min-height: 76px;
     }
 
     .link-thumbnail {
-        width: 44px;
-        height: 44px;
+        width: 52px;
+        height: 52px;
+    }
+
+    .link-thumbnail.pdf-icon svg,
+    .link-thumbnail.doc-icon svg {
+        width: 26px;
+        height: 26px;
     }
 
     .link-title {
-        font-size: 14px;
+        font-size: 15px;
     }
 
     .menu-btn {
@@ -1181,12 +1252,12 @@ a:focus-visible {
 }
 
 .about-profile-image {
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
     margin: 0 auto 20px;
     border-radius: 50%;
     overflow: hidden;
-    border: 5px solid rgba(255, 255, 255, 0.95);
+    border: 6px solid rgba(255, 255, 255, 0.95);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
@@ -1197,15 +1268,15 @@ a:focus-visible {
 }
 
 .about-name {
-    font-size: 32px;
+    font-size: 36px;
     font-weight: 800;
     color: white;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .about-tagline {
-    font-size: 16px;
+    font-size: 18px;
     color: rgba(255, 255, 255, 0.9);
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
@@ -1404,12 +1475,16 @@ a:focus-visible {
     }
 
     .about-name {
-        font-size: 28px;
+        font-size: 32px;
+    }
+
+    .about-tagline {
+        font-size: 16px;
     }
 
     .about-profile-image {
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
     }
 
     .about-section {

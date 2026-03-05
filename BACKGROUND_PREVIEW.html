@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Preview Gallery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 36px;
+            font-weight: 800;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #6b7280;
+            margin-bottom: 40px;
+            font-size: 18px;
+        }
+        
+        .current-badge {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .preview-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .preview-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+        }
+        
+        .preview-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        .preview-info {
+            padding: 20px;
+        }
+        
+        .preview-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+        }
+        
+        .preview-description {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+        
+        .preview-colors {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .color-dot {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .preview-button {
+            width: 100%;
+            padding: 12px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .preview-button:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+        
+        .code-snippet {
+            background: #1a1a2e;
+            color: #a8edea;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            margin-top: 10px;
+            overflow-x: auto;
+            display: none;
+        }
+        
+        .preview-card.active .code-snippet {
+            display: block;
+        }
+        
+        .instructions {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+        
+        .instructions h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 15px;
+        }
+        
+        .instructions ol {
+            margin-left: 20px;
+            color: #6b7280;
+            line-height: 1.8;
+        }
+        
+        .instructions li {
+            margin-bottom: 10px;
+        }
+        
+        .instructions code {
+            background: #f3f4f6;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #667eea;
+        }
+        
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Background Gallery <span class="current-badge">LIVE PREVIEW</span></h1>
+        <p class="subtitle">Click any background to see the code and try it on your site</p>
+        
+        <div class="instructions">
+            <h2>📝 How to Use</h2>
+            <ol>
+                <li>Click on any background below to see the code</li>
+                <li>Open your website in another tab</li>
+                <li>Press <code>F12</code> to open browser console</li>
+                <li>Copy and paste the code</li>
+                <li>Press <code>Enter</code> to apply!</li>
+            </ol>
+        </div>
+        
+        <div class="gallery" id="gallery"></div>
+    </div>
+    
+    <script>
+        const backgrounds = [
+            {
+                title: 'Abstract Gradient',
+                description: 'Vibrant, modern, perfect for creative profiles',
+                url: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&h=400&fit=crop&q=80',
+                colors: ['#667eea', '#764ba2', '#f093fb'],
+                current: true
+            },
+            {
+                title: 'Colorful Waves',
+                description: 'Bold and energetic, great for tech profiles',
+                url: 'https://images.unsplash.com/photo-1557682250-33bd709cbe85?w=1200&h=400&fit=crop&q=80',
+                colors: ['#ff6b9d', '#c06c84', '#6c5ce7']
+            },
+            {
+                title: 'Soft Pastel',
+                description: 'Elegant and dreamy, perfect for personal brands',
+                url: 'https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=1200&h=400&fit=crop&q=80',
+                colors: ['#ffeaa7', '#fab1a0', '#a29bfe']
+            },
+            {
+                title: 'Neon Glow',
+                description: 'Futuristic and bold, ideal for tech enthusiasts',
+                url: 'https://images.unsplash.com/photo-1557682224-5b8590cd9ec5?w=1200&h=400&fit=crop&q=80',
+                colors: ['#fd79a8', '#6c5ce7', '#00b894']
+            },
+            {
+                title: 'Holographic',
+                description: 'Iridescent and modern, stands out beautifully',
+                url: 'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=1200&h=400&fit=crop&q=80',
+                colors: ['#a29bfe', '#fd79a8', '#fdcb6e']
+            },
+            {
+                title: 'Smooth Blend',
+                description: 'Professional and clean, great for business',
+                url: 'https://images.unsplash.com/photo-1557683316-973673baf926?w=1200&h=400&fit=crop&q=80',
+                colors: ['#667eea', '#764ba2', '#f093fb']
+            },
+            {
+                title: 'Cosmic Purple',
+                description: 'Deep and mystical, perfect for creative work',
+                url: 'https://images.unsplash.com/photo-1620121692029-d088224ddc74?w=1200&h=400&fit=crop&q=80',
+                colors: ['#6c5ce7', '#a29bfe', '#fd79a8']
+            },
+            {
+                title: 'Sunset Gradient',
+                description: 'Warm and inviting, great for personal profiles',
+                url: 'https://images.unsplash.com/photo-1557682268-e3955ed5d83f?w=1200&h=400&fit=crop&q=80',
+                colors: ['#fdcb6e', '#fd79a8', '#ff7675']
+            },
+            {
+                title: 'Ocean Waves',
+                description: 'Calm and serene, perfect for peaceful vibes',
+                url: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&h=400&fit=crop&q=80',
+                colors: ['#00b894', '#00cec9', '#0984e3']
+            },
+            {
+                title: 'Liquid Colors',
+                description: 'Artistic and fluid, ideal for creative portfolios',
+                url: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=1200&h=400&fit=crop&q=80',
+                colors: ['#fd79a8', '#fdcb6e', '#a29bfe']
+            }
+        ];
+        
+        const gallery = document.getElementById('gallery');
+        
+        backgrounds.forEach((bg, index) => {
+            const card = document.createElement('div');
+            card.className = 'preview-card';
+            
+            const colorsHTML = bg.colors.map(color => 
+                `<div class="color-dot" style="background: ${color}"></div>`
+            ).join('');
+            
+            const currentBadge = bg.current ? '<span class="current-badge">CURRENT</span>' : '';
+            
+            card.innerHTML = `
+                <img src="${bg.url}" alt="${bg.title}" class="preview-image">
+                <div class="preview-info">
+                    <div class="preview-title">${bg.title} ${currentBadge}</div>
+                    <div class="preview-description">${bg.description}</div>
+                    <div class="preview-colors">${colorsHTML}</div>
+                    <button class="preview-button" onclick="showCode(${index})">
+                        Show Code
+                    </button>
+                    <div class="code-snippet">
+setHeaderBackground('${bg.url}');
+                    </div>
+                </div>
+            `;
+            
+            gallery.appendChild(card);
+        });
+        
+        function showCode(index) {
+            const cards = document.querySelectorAll('.preview-card');
+            cards.forEach((card, i) => {
+                if (i === index) {
+                    card.classList.toggle('active');
+                } else {
+                    card.classList.remove('active');
+                }
+            });
+            
+            // Copy to clipboard
+            const code = `setHeaderBackground('${backgrounds[index].url}');`;
+            navigator.clipboard.writeText(code).then(() => {
+                const button = cards[index].querySelector('.preview-button');
+                const originalText = button.textContent;
+                button.textContent = '✓ Copied!';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

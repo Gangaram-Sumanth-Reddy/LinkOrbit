@@ -549,6 +549,109 @@ window.addEventListener('load', () => {
 });
 
 console.log('🎉 Linktree clone loaded successfully!');
+
+// ============================================
+// HEADER BACKGROUND IMAGE UTILITY
+// ============================================
+
+/**
+ * Set custom header background image
+ * @param {string} imageUrl - URL or path to the image
+ */
+function setHeaderBackground(imageUrl) {
+    const headerDecoration = document.getElementById('headerDecoration');
+    
+    if (!headerDecoration) {
+        console.error('Header decoration element not found');
+        return;
+    }
+    
+    // Check if image element already exists
+    let imgElement = headerDecoration.querySelector('.header-decoration-image');
+    
+    if (!imgElement) {
+        // Create new image element
+        imgElement = document.createElement('img');
+        imgElement.className = 'header-decoration-image';
+        imgElement.alt = 'Header background';
+        
+        // Insert as first child (behind confetti)
+        headerDecoration.insertBefore(imgElement, headerDecoration.firstChild);
+    }
+    
+    // Set image source
+    imgElement.src = imageUrl;
+    
+    // Add has-image class to remove gradient
+    headerDecoration.classList.add('has-image');
+    
+    // Handle image load error
+    imgElement.onerror = () => {
+        console.error('Failed to load header image:', imageUrl);
+        removeHeaderBackground();
+    };
+    
+    console.log('✅ Header background set:', imageUrl);
+}
+
+/**
+ * Remove custom header background image
+ */
+function removeHeaderBackground() {
+    const headerDecoration = document.getElementById('headerDecoration');
+    
+    if (!headerDecoration) return;
+    
+    const imgElement = headerDecoration.querySelector('.header-decoration-image');
+    
+    if (imgElement) {
+        imgElement.remove();
+    }
+    
+    headerDecoration.classList.remove('has-image');
+    
+    console.log('✅ Header background removed');
+}
+
+/**
+ * Upload and set header background from file input
+ * @param {File} file - Image file from input
+ */
+function uploadHeaderBackground(file) {
+    if (!file) {
+        console.error('No file provided');
+        return;
+    }
+    
+    // Check if file is an image
+    if (!file.type.startsWith('image/')) {
+        console.error('File is not an image');
+        alert('Please select an image file');
+        return;
+    }
+    
+    // Create FileReader to read the image
+    const reader = new FileReader();
+    
+    reader.onload = (e) => {
+        setHeaderBackground(e.target.result);
+    };
+    
+    reader.onerror = () => {
+        console.error('Failed to read file');
+        alert('Failed to read image file');
+    };
+    
+    reader.readAsDataURL(file);
+}
+
+// Example usage (uncomment to use):
+// setHeaderBackground('your-image.jpg');
+// setHeaderBackground('https://images.unsplash.com/photo-1557683316-973673baf926?w=800');
+
+console.log('🖼️ Header background utility loaded');
+console.log('💡 Use setHeaderBackground("image-url") to set custom background');
+console.log('💡 Use removeHeaderBackground() to remove background');
 console.log('🧭 Navigation stack initialized');
 
 

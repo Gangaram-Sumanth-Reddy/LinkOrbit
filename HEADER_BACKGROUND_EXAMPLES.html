@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header Background Examples</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            background: #f5f5f5;
+        }
+        
+        h1 {
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #6b7280;
+            margin-bottom: 40px;
+        }
+        
+        .example-section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .example-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 15px;
+        }
+        
+        .example-description {
+            color: #6b7280;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .code-block {
+            background: #1a1a2e;
+            color: #a8edea;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+            margin-bottom: 15px;
+        }
+        
+        .button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .button:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+        
+        .button-secondary {
+            background: #e5e7eb;
+            color: #1a1a2e;
+        }
+        
+        .button-secondary:hover {
+            background: #d1d5db;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .file-input-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .file-input {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        .note {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        
+        .note-title {
+            font-weight: 700;
+            color: #92400e;
+            margin-bottom: 5px;
+        }
+        
+        .note-text {
+            color: #78350f;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🖼️ Header Background Examples</h1>
+    <p class="subtitle">Interactive examples for setting custom header backgrounds</p>
+    
+    <!-- Example 1: Direct URL -->
+    <div class="example-section">
+        <h2 class="example-title">1. Set Background from URL</h2>
+        <p class="example-description">
+            Use a direct image URL to set the header background. Works with local files or external URLs.
+        </p>
+        
+        <div class="code-block">
+setHeaderBackground('asserts/header-bg.jpg');
+// or
+setHeaderBackground('https://images.unsplash.com/photo-1557683316-973673baf926?w=800');
+        </div>
+        
+        <div class="button-group">
+            <button class="button" onclick="setExample1()">Try Example 1</button>
+            <button class="button" onclick="setExample2()">Try Example 2</button>
+            <button class="button" onclick="setExample3()">Try Example 3</button>
+        </div>
+    </div>
+    
+    <!-- Example 2: File Upload -->
+    <div class="example-section">
+        <h2 class="example-title">2. Upload Custom Image</h2>
+        <p class="example-description">
+            Upload your own image file to use as the header background.
+        </p>
+        
+        <div class="code-block">
+const fileInput = document.getElementById('fileInput');
+fileInput.addEventListener('change', (e) => {
+    uploadHeaderBackground(e.target.files[0]);
+});
+        </div>
+        
+        <div class="button-group">
+            <div class="file-input-wrapper">
+                <button class="button">Upload Image</button>
+                <input type="file" class="file-input" id="uploadInput" accept="image/*">
+            </div>
+        </div>
+    </div>
+    
+    <!-- Example 3: Remove Background -->
+    <div class="example-section">
+        <h2 class="example-title">3. Remove Background</h2>
+        <p class="example-description">
+            Remove the custom background and restore the default gradient.
+        </p>
+        
+        <div class="code-block">
+removeHeaderBackground();
+        </div>
+        
+        <div class="button-group">
+            <button class="button button-secondary" onclick="removeBackground()">Remove Background</button>
+        </div>
+    </div>
+    
+    <!-- Example 4: Slideshow -->
+    <div class="example-section">
+        <h2 class="example-title">4. Automatic Slideshow</h2>
+        <p class="example-description">
+            Rotate through multiple images automatically.
+        </p>
+        
+        <div class="code-block">
+const images = ['img1.jpg', 'img2.jpg', 'img3.jpg'];
+let index = 0;
+
+setInterval(() => {
+    setHeaderBackground(images[index]);
+    index = (index + 1) % images.length;
+}, 5000);
+        </div>
+        
+        <div class="button-group">
+            <button class="button" onclick="startSlideshow()">Start Slideshow</button>
+            <button class="button button-secondary" onclick="stopSlideshow()">Stop Slideshow</button>
+        </div>
+    </div>
+    
+    <!-- Example 5: Random Image -->
+    <div class="example-section">
+        <h2 class="example-title">5. Random Background</h2>
+        <p class="example-description">
+            Set a random image from a collection.
+        </p>
+        
+        <div class="code-block">
+const images = ['img1.jpg', 'img2.jpg', 'img3.jpg'];
+const random = images[Math.floor(Math.random() * images.length)];
+setHeaderBackground(random);
+        </div>
+        
+        <div class="button-group">
+            <button class="button" onclick="setRandomBackground()">Random Background</button>
+        </div>
+    </div>
+    
+    <!-- Note -->
+    <div class="note">
+        <div class="note-title">📝 Note</div>
+        <div class="note-text">
+            These examples will work when you open your main index.html file. 
+            Make sure you have the header background functions loaded in script.js.
+        </div>
+    </div>
+    
+    <script>
+        // Example images (using Unsplash for demo)
+        const exampleImages = [
+            'https://images.unsplash.com/photo-1557683316-973673baf926?w=800&q=80',
+            'https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&q=80',
+            'https://images.unsplash.com/photo-1557682250-33bd709cbe85?w=800&q=80',
+            'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=800&q=80',
+            'https://images.unsplash.com/photo-1557682224-5b8590cd9ec5?w=800&q=80'
+        ];
+        
+        let slideshowInterval = null;
+        
+        function setExample1() {
+            window.open('index.html', '_blank');
+            setTimeout(() => {
+                alert('Open browser console and run:\nsetHeaderBackground("' + exampleImages[0] + '")');
+            }, 500);
+        }
+        
+        function setExample2() {
+            window.open('index.html', '_blank');
+            setTimeout(() => {
+                alert('Open browser console and run:\nsetHeaderBackground("' + exampleImages[1] + '")');
+            }, 500);
+        }
+        
+        function setExample3() {
+            window.open('index.html', '_blank');
+            setTimeout(() => {
+                alert('Open browser console and run:\nsetHeaderBackground("' + exampleImages[2] + '")');
+            }, 500);
+        }
+        
+        function removeBackground() {
+            window.open('index.html', '_blank');
+            setTimeout(() => {
+                alert('Open browser console and run:\nremoveHeaderBackground()');
+            }, 500);
+        }
+        
+        function startSlideshow() {
+            alert('This will start a slideshow in your main page.\n\nCopy this code to your browser console:\n\nconst images = ' + JSON.stringify(exampleImages.slice(0, 3)) + ';\nlet index = 0;\nsetInterval(() => {\n    setHeaderBackground(images[index]);\n    index = (index + 1) % images.length;\n}, 5000);');
+        }
+        
+        function stopSlideshow() {
+            alert('To stop the slideshow, refresh the page.');
+        }
+        
+        function setRandomBackground() {
+            const randomImage = exampleImages[Math.floor(Math.random() * exampleImages.length)];
+            window.open('index.html', '_blank');
+            setTimeout(() => {
+                alert('Open browser console and run:\nsetHeaderBackground("' + randomImage + '")');
+            }, 500);
+        }
+        
+        // File upload handler
+        document.getElementById('uploadInput').addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                alert('File selected: ' + file.name + '\n\nTo use this in your main page:\n1. Open index.html\n2. Open browser console\n3. Use the file input there with uploadHeaderBackground()');
+            }
+        });
+    </script>
+</body>
+</html>
