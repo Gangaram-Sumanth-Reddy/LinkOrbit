@@ -36,7 +36,7 @@ Transformed footer links into fully designed professional documentation pages wi
 - Active section highlighting in sidebar
 - Scroll-based navigation updates
 - Professional documentation styling
-- Contact box with email: hello@codegai.com
+- Contact box with email: hello.codegai@gmail.com
 
 ### 2. Report Issue Page (`#reportPage`)
 
@@ -47,7 +47,7 @@ Transformed footer links into fully designed professional documentation pages wi
 
 **Options:**
 1. **Email Support**
-   - Direct mailto link to hello@codegai.com
+   - Direct mailto link to hello.codegai@gmail.com
    - Pre-filled subject: "Website Issue Report"
 
 2. **Quick Issue Form**

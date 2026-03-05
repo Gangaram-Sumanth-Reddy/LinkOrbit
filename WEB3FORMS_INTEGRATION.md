@@ -345,7 +345,7 @@ reportForm.addEventListener('submit', async (e) => {
 - Response Time: Usually within 24 hours
 
 ### Your Support
-- Email: hello@codegai.com
+- Email: hello.codegai@gmail.com
 - Response Time: Within 48 hours
 - Issue Tracking: Via form submissions
 

@@ -937,67 +937,6 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ============================================
-// PRIVACY PAGE - SIDEBAR NAVIGATION
-// ============================================
-
-const privacyNavLinks = document.querySelectorAll('#privacyPage .doc-nav-link');
-
-privacyNavLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        
-        // Remove active class from all links
-        privacyNavLinks.forEach(l => l.classList.remove('active'));
-        
-        // Add active class to clicked link
-        link.classList.add('active');
-        
-        // Scroll to section
-        const targetId = link.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-        
-        if (targetSection) {
-            targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-        
-        if (navigator.vibrate) {
-            navigator.vibrate(10);
-        }
-    });
-});
-
-// Update active nav link on scroll
-let scrollTimeout;
-const privacyContent = document.querySelector('#privacyPage .doc-content');
-
-if (privacyContent) {
-    privacyContent.addEventListener('scroll', () => {
-        clearTimeout(scrollTimeout);
-        
-        scrollTimeout = setTimeout(() => {
-            const sections = document.querySelectorAll('#privacyPage .doc-section');
-            let currentSection = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (privacyContent.scrollTop >= sectionTop - 100) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
-            
-            privacyNavLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${currentSection}`) {
-                    link.classList.add('active');
-                }
-            });
-        }, 100);
-    });
-}
-
-// ============================================
 // REPORT PAGE - FORM HANDLING
 // ============================================
 
